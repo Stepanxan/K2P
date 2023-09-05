@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Звіт</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
+</head>
+<body>
+    <h1>Створення Звіту</h1>
+    <form method="POST" action="{{ url_for('generate_report') }}">
+        <label for="start_date">Початкова дата:</label>
+        <input type="date" id="start_date" name="start_date" required><br>
+
+        <label for="end_date">Кінцева дата:</label>
+        <input type="date" id="end_date" name="end_date" required><br>
+
+        <button type="submit">Створити Звіт</button>
+    </form>
+
+    {% if show_report %}
+        <h2>Результати Звіту</h2>
+
+        <p>Початкова дата: {{ start_date }}</p>
+        <p>Кінцева дата: {{ end_date }}</p>
+
+        <h3>Cписано</h3>
+        <table>
+            <tr>
+                <th>Назва</th>
+                <th>Кількість</th>
+                <th>Дата</th>
+            </tr>
+            {% for sale in sales %}
+            <tr>
+                <td>{{ sale.name }}</td>
+                <td>{{ sale.quantity }}</td>
+                <td>{{ sale.expense_date.strftime('%Y-%m-%d') }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+</body>
+</html>

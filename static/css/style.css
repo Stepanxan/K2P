@@ -1,0 +1,42 @@
+h1 {
+    text-align: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.profit-button {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+}
+
+.expense-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+}
+
+.product-button {
+    background-color: #FFA500;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+}
+
+.report-button{
+    background-color: #008B8B;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+
+}

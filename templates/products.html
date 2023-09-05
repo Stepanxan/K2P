@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Product List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Додати товар</h1>
+    <div class="button-container">
+        <a href="/products/add" class="profit-button" type="submit">Прибуткова накладна</a>
+        <a href="/expenses/add" class="expense-button" type="submit">Видаткова накладна</a>
+        <a href="/materials" class="product-button">Товар</a>
+        <a href="/generate_report" class="report-button">Звіт</a>
+    </div>
+</body>
+</html>

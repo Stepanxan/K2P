@@ -1,0 +1,91 @@
+/* Стиль заголовка */
+h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Стиль для елементів форми */
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Стилі для контейнера */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Стилі для кнопок */
+.back-button, button[type="submit"] {
+    margin: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Стилі для таблиці */
+table {
+    border-collapse: collapse;
+    width: 80%;
+    margin: 0 auto; /* Розміщення таблиці по центру */
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+/* Стилі для заголовка таблиці */
+th {
+    background-color: #f2f2f2;
+}
+
+/* Перемикач кольору для рядків таблиці */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff;
+}
