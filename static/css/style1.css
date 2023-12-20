@@ -89,3 +89,25 @@ tr:nth-child(even) {
 tr:nth-child(odd) {
     background-color: #ffffff;
 }
+
+.title_container{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    padding: 20px 20px 20px 20px;
+    left: 300px;
+}
+.title{
+    position: relative;
+    display: flex;
+}
+.clear_bottom{
+    position: relative;
+    display: flex;
+    border: none;
+}
+.clear_bottom{
+    display: flex;
+    position: relative;
+    left: 810px;
+}

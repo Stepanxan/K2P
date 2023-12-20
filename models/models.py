@@ -22,6 +22,7 @@ class Product(db.Model):
     name = db.Column(db.String(255), nullable=False)
     quantity = db.Column(db.Integer, nullable=True)
     unit = db.Column(db.String(50), nullable=True)
+    price = db.Column(db.Float, nullable=True)
     added_date = db.Column(db.Date, nullable=True, default=datetime.utcnow)
 
     batches = relationship("Batch", back_populates="product")

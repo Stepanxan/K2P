@@ -9,31 +9,79 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style1.css') }}">
 </head>
 <body>
-    <h1>Видаткова накладна</h1>
+<h1>Видаткова накладна</h1>
 
-    <form method="POST" action="/expenses/add">
-        <label for="name">Назва товару:</label>
-        <input type="text" name="name" required><br>
+<form method="POST" action="/expenses/add">
+    <label for="name">Назва товару:</label>
+    <input type="text" name="name" required><br>
 
-        <label for="quantity">Кількість:</label>
-        <input type="number" name="quantity"><br>
+    <label for="quantity">Кількість:</label>
+    <input type="number" name="quantity"><br>
 
-        <label for="unit">Одиниця виміру:</label>
-        <input type="text" name="unit"><br>
-        <div class="button-container">
-            <button type="submit">Видоток товару</button>
-            <a href="/" class="back-button">Назад</a>
-       </div>
-    </form>
+    <label for="unit">Одиниця виміру:</label>
+    <input type="text" name="unit"><br>
 
-    {% with messages = get_flashed_messages() %}
+    <div class="button-container">
+        <button type="submit">Видаток товару</button>
+        <a href="/" class="back-button">Назад</a>
+    </div>
+</form>
+
+{% with messages = get_flashed_messages() %}
     {% if messages %}
-    <ul>
-        {% for message in messages %}
-        <li>{{ message }}</li>
-        {% endfor %}
-    </ul>
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
     {% endif %}
-    {% endwith %}
+{% endwith %}
+
+{% if expense_form_data %}
+    <div class="title_container">
+        <p class="title">Видаткова накладна № <b>{{ invoice_number }}</b></p>
+        <p class="title">Постачальник: "ТзОВ ФІРМА №1"</p>
+        <p class="title">Отримувач: "ТзОВ ФІРМА №2"</p>
+        <p class="title">Накладна сформована згідно рахунку <b>№ "{{ invoice_number }}"</b></p>
+        <p class="title">Дата сформування: <b>{{ current_datetime }}</b></p>
+    </div>
+    <table>
+        <thead>
+        <tr>
+            <th>№ позиції</th>
+            <th>Найменування</th>
+            <th>Кількість товару</th>
+            <th>Вартість од. товару з ПДВ</th>
+            <th> ПДВ (%)</th>
+            <th>Загальна сума з ПДВ</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for data in expense_form_data %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ data['invoice_title'] if 'invoice_title' in data else '' }}</td>
+                <td>{{ data['invoice_quantity'] if 'invoice_quantity' in data else '' }}</td>
+                <td>{{ data['invoice_price'] if 'invoice_price' in data else '' }}</td>
+                <td>20</td>
+                <td>{{ data['invoice_quantity'] * data['invoice_price'] if ('invoice_quantity' in data and 'invoice_price' in data) else '' }}</td>
+            </tr>
+        {% endfor %}
+
+        <tr>
+            <td colspan="5"><b>Загальна сума з ПДВ</b></td>
+            <td><b>{{ total_amount }}</b></td>
+        </tr>
+        <tr>
+            <td colspan="5"><b>ПДВ:</b></td>
+            <td>20%</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <form class="clear_bottom" method="POST" action="/expenses/clear">
+        <button type="submit">Очистити</button>
+    </form>
+{% endif %}
 </body>
 </html>
